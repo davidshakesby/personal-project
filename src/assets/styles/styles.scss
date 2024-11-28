@@ -1,0 +1,11 @@
+@import "slider";
+@import "theme";
+@import "abstracts/varibles";
+@import "base/margin";
+@import "base/layout";
+@import "base/utils";
+
+body {
+  height: 100vh;
+  margin: 0;
+}

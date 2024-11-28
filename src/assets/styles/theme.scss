@@ -1,0 +1,9 @@
+@import "abstracts/varibles";
+.light {
+  background-color: $dark-theme;
+  color: $white;
+}
+.dark {
+  background-color: $light-theme;
+  color: $black;
+}

@@ -1,0 +1,27 @@
+.fl {
+  display: flex;
+}
+
+.fl-col {
+  flex-direction: column;
+}
+
+.fl-row {
+  flex-direction: row;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.ta-c {
+  text-align: center;
+}

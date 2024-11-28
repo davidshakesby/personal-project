@@ -1,0 +1,29 @@
+.container {
+  margin: 0 auto;
+  padding: 0 0.625rem;
+  width: 100vw;
+  box-sizing: border-box;
+  @media only screen and (min-width: 768px) {
+    max-width: 1190px;
+    padding: 0 1.25rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 0;
+  }
+}
+
+.width-60 {
+  width: 60%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.width-90 {
+  width: 90%;
+}
+
+.width-100 {
+  width: 100%;
+}
