@@ -1,11 +1,39 @@
-@import "slider";
-@import "theme";
-@import "abstracts/varibles";
-@import "base/margin";
-@import "base/layout";
-@import "base/utils";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 body {
   height: 100vh;
   margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 0.625rem;
+  width: 100vw;
+  box-sizing: border-box;
+  @media only screen and (min-width: 768px) {
+    max-width: 1190px;
+    padding: 0 1.25rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 0;
+  }
+}
+
+.dark {
+  @apply bg-dark text-gray-100;
+}
+
+.light {
+  @apply bg-light text-gray-800;
+}
+
+.blue {
+  @apply bg-blue text-white
+}
+
+.green {
+  @apply bg-green text-gray-800;
 }

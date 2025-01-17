@@ -1,11 +1,11 @@
 <template>
-  <Header />
+  <Header :theme="theme" :toggleTheme="toggleTheme" />
   <router-view />
-  <Footer />
+  <Footer :theme="theme" />
 </template>
 
 <script>
-import styles from './assets/styles/styles.scss'
+import { mapState, mapActions } from 'vuex'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 
@@ -14,9 +14,13 @@ export default {
     Header,
     Footer
   },
-  data () {
-    return {
-      styles
+  computed: {
+    ...mapState(['theme']) // Access theme from Vuex state
+  },
+  methods: {
+    ...mapActions(['asyncToggleTheme']), // Dispatch Vuex action
+    toggleTheme () {
+      this.asyncToggleTheme() // Centralized toggle logic
     }
   }
 }
