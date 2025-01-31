@@ -2,7 +2,9 @@
 const state = {
   tasks: JSON.parse(localStorage.getItem('tasks')) || [], // This is an array, it will load the array on intial load
   newTask: '',
-  errorMessage: ''
+  errorMessage: '',
+  editingTaskIndex: null,
+  editingTaskText: ''
 }
 
 const mutations = {
@@ -50,6 +52,37 @@ const mutations = {
   /* This fetches the tasks array from localstorage when the page is refreshed */
   LOAD_TASKS (state) {
     state.tasks = JSON.parse(localStorage.getItem('tasks')) || []
+  },
+  /* This sets up the task for editing. The editingTaskIndex finds the position of the task in the array
+  and the editingTaskText get the text from that task */
+  SET_EDITING_TASK (state, { index, text }) {
+    state.editingTaskIndex = index
+    state.editingTaskText = text
+  },
+  /* This updates the editingTaskText with the input from the user */
+  UPDATE_EDITING_TASK_TEXT (state, newText) {
+    state.editingTaskText = newText
+  },
+  /* This checks if the user input it empty or repeats a task already there, if it does the show error message,
+  if it passes both vailidation points, then update the array and add changes to localstorage.
+  It also resets the editing state */
+  UPDATE_TASK (state) {
+    if (state.editingTaskIndex !== null) {
+      const trimmedText = state.editingTaskText.trim()
+      if (!trimmedText) {
+        state.errorMessage = 'Task cannot be empty!'
+        return // Exit early
+      }
+      if (state.tasks.some((task, i) => i !== state.editingTaskIndex && task.text.toLowerCase() === trimmedText.toLowerCase())) {
+        state.errorMessage = 'Task already exists!'
+        return
+      }
+      state.tasks[state.editingTaskIndex].text = trimmedText
+      localStorage.setItem('tasks', JSON.stringify(state.tasks))
+      state.editingTaskIndex = null
+      state.editingTaskText = ''
+      state.errorMessage = ''
+    }
   }
 }
 
@@ -66,6 +99,15 @@ const actions = {
   },
   loadTasks ({ commit }) {
     commit('LOAD_TASKS')
+  },
+  setEditingTask ({ commit }, payload) {
+    commit('SET_EDITING_TASK', payload)
+  },
+  updateEditingTaskText ({ commit }, newText) {
+    commit('UPDATE_EDITING_TASK_TEXT', newText)
+  },
+  updateTask ({ commit }) {
+    commit('UPDATE_TASK')
   }
 }
 
@@ -73,7 +115,9 @@ const actions = {
 const getters = {
   tasks: state => state.tasks,
   newTask: state => state.newTask,
-  errorMessage: state => state.errorMessage
+  errorMessage: state => state.errorMessage,
+  editingTaskIndex: state => state.editingTaskIndex,
+  editingTaskText: state => state.editingTaskText
 }
 
 export default {
