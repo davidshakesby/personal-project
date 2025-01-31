@@ -37,3 +37,8 @@ body {
 .green {
   @apply bg-green text-gray-800;
 }
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
