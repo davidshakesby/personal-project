@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import todo from './modules/todo'
 
 const store = createStore({
   state: {
@@ -36,6 +37,9 @@ const store = createStore({
         commit('setTheme', theme)
       }, 500)
     }
+  },
+  modules: {
+    todo
   }
 })
 
