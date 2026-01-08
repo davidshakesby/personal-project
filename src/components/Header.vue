@@ -10,6 +10,8 @@
         >
           {{ theme.charAt(0).toUpperCase() + theme.slice(1) }} Mode
         </button>
+        <RouterLink to="/about">Go to About</RouterLink>
+        <RouterLink to="/todo">Todo List</RouterLink>
       </div>
     </div>
   </header>

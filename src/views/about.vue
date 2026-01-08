@@ -1,12 +1,10 @@
 <template>
- <h1> Hello World </h1>
+ <h2>About Us</h2>
 </template>
 
 <script>
-
 export default {
   name: 'HomePage',
-  components: {
-  }
+  components: { }
 }
 </script>

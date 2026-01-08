@@ -1,12 +1,14 @@
 <template>
- <h1> Hello World </h1>
+ <Home/>
 </template>
 
 <script>
+import Home from '../components/Todo.vue'
 
 export default {
-  name: 'HomePage',
+  name: 'Todo List',
   components: {
+    Home
   }
 }
 </script>
