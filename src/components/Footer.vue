@@ -1,22 +1,15 @@
 <template>
   <footer :class="theme">
-    <p>© 2024 David Shakesby</p>
+    <p class="text-center p-16">© 2024 David Shakesby</p>
   </footer>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 export default {
-  computed: {
-    ...mapState(['theme']) // Maps Vuex state to 'theme'
+  props: {
+    theme: String,
+    toggleTheme: Function
   }
 }
 </script>
-
-<style scoped>
-footer {
-  text-align: center;
-  padding: 1em;
-}
-</style>
