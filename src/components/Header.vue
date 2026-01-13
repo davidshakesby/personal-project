@@ -1,6 +1,6 @@
 <template>
-  <header :class="theme">
-    <div class="flex items-center justify-between p-16 w-100">
+  <header :class="theme" class="relative">
+    <div class="flex flex-wrap items-center justify-between p-16 w-full">
       <!-- Toggle Switch -->
       <div class="flex items-center">
         <text class="mr-10">Theme</text>
@@ -11,7 +11,8 @@
           {{ theme.charAt(0).toUpperCase() + theme.slice(1) }} Mode
         </button>
         </div>
-      <div>
+        <BurgerMenu :theme="theme" />
+        <div class="hidden md:flex" >
         <RouterLink class="ml-3 nav--button pb-2" to="/">Home</RouterLink>
         <RouterLink class="ml-3 nav--button pb-2" to="/portfoilo">Portfoilo</RouterLink>
         <RouterLink class="ml-3 nav--button pb-2" to="/about">About Me</RouterLink>
@@ -22,8 +23,12 @@
 </template>
 
 <script>
+import BurgerMenu from './Burger-menu.vue'
 
 export default {
+  components: {
+    BurgerMenu
+  },
   props: {
     theme: String,
     toggleTheme: Function
