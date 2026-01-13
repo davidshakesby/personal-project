@@ -3,7 +3,7 @@ import todo from './modules/todo'
 
 const store = createStore({
   state: {
-    themes: ['light', 'dark', 'blue', 'green'], // List of available themes
+    themes: ['light', 'dark'], // List of available themes
     theme: localStorage.getItem('theme') || 'light' // Default theme
   },
   mutations: {

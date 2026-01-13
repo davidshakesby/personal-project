@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
+
 
 body {
   height: 100vh;
   margin: 0;
+  font-family: "Faculty Glyphic", sans-serif;
+  font-style: normal;
 }
 
 .container {
@@ -29,16 +33,19 @@ body {
 .light {
   @apply bg-light text-gray-800;
 }
-
-.blue {
-  @apply bg-blue text-white
-}
-
-.green {
-  @apply bg-green text-gray-800;
-}
-
+ 
 .completed {
   text-decoration: line-through;
   color: gray;
 }
+
+.nav--button:hover {
+  border-bottom: 1px solid;
+  font-weight: 700;
+
+}
+
+.nav--button.router-link-active {
+    border-bottom: 1px solid;
+  }
+

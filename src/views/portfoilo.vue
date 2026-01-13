@@ -1,10 +1,10 @@
 <template>
- <h2>About Us</h2>
+ <h2>Portfoilo</h2>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Portfoilo',
   components: { }
 }
 </script>
